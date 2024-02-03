@@ -187,6 +187,7 @@ usersRouter.post('/:id/reset', async(request, response) => {
   const passwordHash = await bcrypt.hash(newPassword, saltRounds)
 
   user.passwordHash = passwordHash
+  user.resetToken = null
   user
     .save()
     .then(() => response.sendStatus(201))

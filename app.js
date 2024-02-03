@@ -40,8 +40,11 @@ app.use('/api/corporate/img', uploadRouter)
 app.get('/api/*', (req, res) => {
   res.sendStatus(404)
 })
+app.get('/assets/:id', (req, res) => {
+  res.sendFile(path.resolve(process.cwd(), `frontend/assets/${req.params.id}`))
+})
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(process.cwd(), 'dist/index.html'))
+  res.sendFile(path.resolve(process.cwd(), 'frontend/index.html'))
 })
 
 app.use(middleware.unknownEndpoint)

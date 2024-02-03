@@ -11,6 +11,7 @@ const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 const mongoose = require('mongoose')
 var bodyParser = require('body-parser')
+const path = require('path')
 
 mongoose.set('strictQuery', false)
 
@@ -35,6 +36,13 @@ app.use('/api/corporate/blog', blogsRouter)
 app.use('/api/corporate/team', usersRouter)
 app.use('/api/corporate/login', loginRouter)
 app.use('/api/corporate/img', uploadRouter)
+
+app.get('/api/*', (req, res) => {
+  res.sendStatus(404)
+})
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(process.cwd(), 'dist/index.html'))
+})
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

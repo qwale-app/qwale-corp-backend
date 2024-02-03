@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/corporate/blog
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZhcmFhemphbiIsImlkIjoiNjViNmFmMDYwYWQ2MDg1ZmYwOWVhODZmIiwiaWF0IjoxNzA2NjAzNzE3LCJleHAiOjE3MDkxOTU3MTd9.p4mcsMKk0Vp4IUC3HXlrpw-iTw1Sp9j0OgCFGLBeAWg
+
+{
+    "title": "New Blog Title",
+    "content": "Some long content title here, xtiso s jifjo sidjfog sipdfjio gfjiuod odfigj ofidj"
+}

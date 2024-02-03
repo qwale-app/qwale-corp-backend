@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/corporate/team/65b6af060ad6085ff09ea86f/reset
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YjZhZjA2MGFkNjA4NWZmMDllYTg2ZiIsImlhdCI6MTcwNjkxMjYzNiwiZXhwIjoxNzA2OTM0MjM2fQ.2NAe87ewbhlU3Y_VXV5tqf-1HIDUChb2mMiP9XobEUA
+
+{
+    "newPassword": "awesomef"
+}

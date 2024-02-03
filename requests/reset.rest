@@ -1,0 +1,6 @@
+POST http://localhost:3001/api/corporate/team/faraazjan/reset/send
+Content-Type: application/json
+
+{
+    
+}

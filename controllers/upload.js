@@ -9,11 +9,11 @@ require('dotenv').config()
 
 const clearDirectory = () => {
   fs.readdir(path.dirname(__dirname) + '/uploads', (err, files) => {
-    if (err) console.log(err)
+    if (err) console.log(err && (err.code || err.statusCode || err))
 
-    for (const file of files) {
+    for (const file of files.filter(f => f !== '.gitignore')) {
       fs.rm(path.join(path.dirname(__dirname) + '/uploads', file), { force: true, maxRetries: 3, recursive: true }, (err) => {
-        if (err) console.log(err)
+        if (err) console.log(`Error: ${err && (err.code || err.statusCode || err)}`)
       })
     }
   })
@@ -31,7 +31,7 @@ var storage = multer.diskStorage({
   }
 })
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage, limits: { fileSize: 8e6 } })
 
 const getTokenFrom = request => {
   const authorization = request.get('authorization')
